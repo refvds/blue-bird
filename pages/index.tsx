@@ -1,7 +1,12 @@
+import Header from '@/components/Header';
+
 export default function Home() {
   return (
-    <main>
-      <p>hello</p>
-    </main>
+    <>
+      <Header showBackArrow label='Home' />
+      <main>
+        <p>hello</p>
+      </main>
+    </>
   );
 }
