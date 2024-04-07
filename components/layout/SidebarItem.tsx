@@ -1,3 +1,5 @@
+import useCurrentUser from '@/hooks/useCurrentUser';
+import useLoginModal from '@/hooks/useLoginModal';
 import { useRouter } from 'next/router';
 import React, { FC, useCallback } from 'react';
 import { IconType } from 'react-icons';
@@ -7,18 +9,23 @@ interface ISidebarItemProps {
   label: string;
   icon: IconType;
   onClick?: () => void;
+  auth?: boolean;
 }
 
-const SidebarItem: FC<ISidebarItemProps> = ({ href, label, icon: Icon, onClick }) => {
+const SidebarItem: FC<ISidebarItemProps> = ({ href, label, icon: Icon, onClick, auth }) => {
   const router = useRouter();
+  const loginModal = useLoginModal();
+  const { data: currentUser } = useCurrentUser();
 
   const handleClick = useCallback(() => {
     if (onClick) return onClick();
 
-    if (href) {
+    if (auth && !currentUser) {
+      loginModal.onOpen();
+    } else if (href) {
       router.push(href);
     }
-  }, [href, onClick, router]);
+  }, [href, onClick, router, currentUser, auth, loginModal]);
 
   return (
     <ul className='flex items-center' onClick={handleClick}>

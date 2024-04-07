@@ -17,7 +17,7 @@ const Sidebar = () => {
         <div className='space-y-2 lg:w-[230px]'>
           <SidebarLogo />
           {sidebarItems.map((item: ISidebarItem) => (
-            <SidebarItem key={item.href} label={item.label} href={item.href} icon={item.icon} />
+            <SidebarItem key={item.href} label={item.label} href={item.href} icon={item.icon} auth={item.auth} />
           ))}
           {currentUser && (
             <SidebarItem

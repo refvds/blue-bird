@@ -4,4 +4,5 @@ export interface ISidebarItem {
   label: string;
   href: string;
   icon: IconType;
+  auth?: boolean;
 }

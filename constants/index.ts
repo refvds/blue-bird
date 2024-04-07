@@ -11,10 +11,12 @@ export const sidebarItems = [
     label: 'Notifications',
     href: '/notifications',
     icon: BsBellFill,
+    auth: true,
   },
   {
     label: 'Profile',
     href: '/profile',
     icon: FaUser,
+    auth: true,
   },
 ];
