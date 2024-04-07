@@ -1,4 +1,6 @@
 import Header from '@/components/Header';
+import UserBio from '@/components/users/UserBio';
+import UserHero from '@/components/users/UserHero';
 import useUser from '@/hooks/useUser';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -27,6 +29,8 @@ const UserView = () => {
   return (
     <>
       <Header showBackArrow label={fetchedUser?.name} />
+      <UserHero id={Number(id)} />
+      <UserBio id={Number(id)} />
     </>
   );
 };
