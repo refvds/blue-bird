@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import fetcher from '@/libs/fetcher';
 
-const useUser = (id: number) => {
+const useUser = (id: any) => {
   const { data, error, isLoading, mutate } = useSWR(id ? `/api/users/${id}` : null, fetcher);
 
   return {
