@@ -7,9 +7,30 @@ import { BiLogOut } from 'react-icons/bi';
 import SidebarTweetButton from './SidebarTweetButton';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import { signOut } from 'next-auth/react';
+import { FaUser } from 'react-icons/fa';
+import { BsBellFill, BsHouseFill } from 'react-icons/bs';
 
 const Sidebar = () => {
   const { data: currentUser } = useCurrentUser();
+  const sidebarItems = [
+    {
+      label: 'Home',
+      href: '/',
+      icon: BsHouseFill,
+    },
+    {
+      label: 'Notifications',
+      href: '/notifications',
+      icon: BsBellFill,
+      auth: true,
+    },
+    {
+      label: 'Profile',
+      href: `/users/${currentUser?.id}`,
+      icon: FaUser,
+      auth: true,
+    },
+  ];
 
   return (
     <div className='col-span-1 h-full pr-4 md:pr-6'>

@@ -1,12 +1,11 @@
+import Form from '@/components/Form';
 import Header from '@/components/Header';
 
 export default function Home() {
   return (
     <>
       <Header showBackArrow label='Home' />
-      <main>
-        <p>hello</p>
-      </main>
+      <Form placeholder="What's happining ?" />
     </>
   );
 }
