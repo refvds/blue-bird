@@ -23,7 +23,7 @@ const PostItem: FC<IPostItemProps> = ({ data, userId }) => {
 
       router.push(`/users/${data.user.id}`);
     },
-    [router, data.user.id]
+    [router, data?.user?.id]
   );
 
   const goToPost = useCallback(() => {
@@ -57,7 +57,7 @@ const PostItem: FC<IPostItemProps> = ({ data, userId }) => {
       onClick={goToPost}
     >
       <div className='flex items-start gap-3'>
-        <Avatar id={data.user.id} />
+        <Avatar id={data?.user?.id} />
         <div>
           <div className='flex items-center gap-2'>
             <p
@@ -69,7 +69,7 @@ const PostItem: FC<IPostItemProps> = ({ data, userId }) => {
             '
               onClick={goToUser}
             >
-              {data.user.name}
+              {data?.user?.name}
             </p>
             <span
               className='
@@ -81,11 +81,11 @@ const PostItem: FC<IPostItemProps> = ({ data, userId }) => {
             '
               onClick={goToUser}
             >
-              @{data.user.username}
+              @{data?.user?.username}
             </span>
             <span className='text-neutral-500 text-sm'>{createdAt}</span>
           </div>
-          <div className='text-white mt-1'>{data.body}</div>
+          <div className='text-white mt-1'>{data?.body}</div>
           <div className='flex items-center mt-3 gap-10'>
             <div
               className='
