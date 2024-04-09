@@ -108,7 +108,7 @@ const PostItem: FC<IPostItemProps> = ({ data, userId }) => {
               // onClick={}
             >
               <AiOutlineMessage size={20} />
-              <p>{data.comment?.length || 0}</p>
+              <p>{data.comments?.length || 0}</p>
             </div>
             <div
               className='
